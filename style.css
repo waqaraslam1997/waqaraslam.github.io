@@ -1,0 +1,343 @@
+@import url('https://fonts.googleapis.com/css?family=PT+Sans+Narrow:400,700&display=swap');
+body {
+	font-family: "PT Sans Narrow", sans-serif;
+	margin: 0;
+	padding: 0;
+	min-height: 100vh;
+
+}
+.open {
+	position: fixed;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	pointer-events: none;
+	z-index: 1000;
+}
+.open .layer {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	transform-origin: top;
+	animation: open 1s ease-in-out forwards;
+}
+.open .layer:nth-child(1)
+{
+	background: rgb(0, 0, 0);
+	z-index: 2;
+}
+.open .layer:nth-child(2)
+{
+	background: powderblue;
+	animation-delay: 1s;
+	z-index: 1;
+}
+@keyframes open
+{
+	0%
+	{
+		transform: scaleY(1);
+	}
+	100%
+	{
+		transform: scaleY(0);
+	}
+}
+
+section {
+	position: absolute;
+	overflow: hidden;
+	width: 100%;
+	height: 100%;
+	background: #fff;
+	display: grid;
+	justify-content: center;
+	align-content: center;
+}
+.banner {
+	position: absolute;
+	top: 50%;
+	left: 10%;
+	transform: translateY(-50%);
+	max-width: 700px;
+}
+.banner h2,
+.banner h3 {
+	position: relative;
+	margin: 0;
+	padding: 0;
+	text-transform: uppercase;
+	display: inline-block;
+	transform-origin: left;
+	transform: scaleX(0);
+	letter-spacing: 2px;
+	animation: textrevealreverse 1s ease-in-out forwards;
+}
+.banner h2
+{
+	font-size: 5em;
+	animation-delay: 2s;
+}
+.banner h3
+{
+	font-size: 3em;
+	animation-delay: 3s;
+}
+
+
+.banner h2:before,
+.banner h3:before
+{
+	content: '';
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: #000;
+	transform-origin: right;
+	animation: textreveal 1s ease-in-out forwards;
+	animation-delay: 3s
+}
+.banner h3:before 
+{
+	animation-delay: 4s;
+}
+@keyframes textreveal
+{
+	0%
+	{
+		transform: scaleX(1);
+	}
+	100%
+	{
+		transform: scaleX(0);
+	}
+}
+@keyframes textrevealreverse
+{
+	0%
+	{
+		transform: scaleX(0);
+	}
+	100%
+	{
+		transform: scaleX(1);
+	}
+}
+
+.banner p {
+	text-align: justify;
+	transform-origin: top;
+	opacity: 0;
+	animation: fade 1s linear forwards;
+	font-weight: 500;
+	font-size: 1.2em;
+	letter-spacing: 2px;
+	animation-delay: 5s;
+}
+@keyframes fade 
+{
+	0%
+	{
+		opacity: 0;
+	}
+	100%
+	{
+		opacity: 1;
+	}
+}
+.banner a{
+	text-decoration: none;
+	display: inline-block;
+	border-radius: 10%;
+	margin: 20px 0 0;
+	padding: 10px 20px;
+	background-color: #000;
+	color: #fff;
+	font-size: 1.2em;
+	font-weight: 600;
+	letter-spacing: 2px;
+	opacity: 0;
+	animation: fadebtn 0.5s linear forwards;
+	animation-delay: 5.5s;
+}
+@keyframes fadebtn 
+{
+	0%
+	{
+		transform: translateY(40px);
+		opacity: 0;
+	}
+	100%
+	{
+		transform: translateY(0px);
+		opacity: 1;
+	}
+}
+
+.vickey {
+	max-width: 350px;
+	position: absolute;
+	right: 0;
+	top: 50%;
+	transform: translateY(-50%);
+	margin-right: 11%;
+	border: 2px solid grey;
+	border-radius: 50px 6px 50px 6px;
+	opacity: 0;
+	animation: side 1s linear forwards;
+	animation-delay: 5.5s;
+}
+@keyframes side 
+{
+	0%
+	{
+		opacity: 0;
+		transform: translateY(-60%);
+	}
+	100%
+	{
+		opacity: 1;
+		transform: translateY(-50%);
+	}
+}
+
+.header {
+	display: flex;
+	width: 80%;
+	height: 80px;
+	align-items: center;
+	position: absolute;
+	top: 0;
+	left: 10%;
+	margin: 0;
+	padding: 0;
+	justify-content: space-between;
+	box-sizing: border-box;
+}
+.header .logo {
+	font-size: 2.2em;
+	letter-spacing: 3px;
+	opacity: 0;
+	animation: fade 1s linear forwards;
+	animation-delay: 5s;
+}
+.header ul {
+	display: flex;
+	z-index: 100;
+	margin: 0;
+	padding: 0;
+
+}
+.header ul li {
+	margin: 0 10px;
+	list-style-type: none;
+	opacity: 0;
+	animation: navbar 0.2s linear forwards;
+	animation-delay: 6s;
+}
+.header ul li:nth-child(2) {
+	animation-delay: 6.25s
+}
+.header ul li:nth-child(3) {
+	animation-delay: 6.50s
+}
+.header ul li:nth-child(4) {
+	animation-delay: 6.75s
+}
+.header ul li:nth-child(5) {
+	animation-delay: 7s
+}
+@keyframes navbar 
+{
+	0%
+	{ 
+		opacity: 0;
+		transform: translateX(100px);
+	}
+	100% {
+		opacity: 1;
+		transform: translateX(0);
+	}
+}
+
+
+.header ul li:last-child {
+	margin-right: 0;
+}
+.header ul li a {
+	text-decoration: none;
+	font-size: 1.2em;
+	letter-spacing: 2px;
+	font-weight: 500;
+	padding: 5px 20px;
+	background: white;
+	color: black;
+	border-radius: 10%;
+}
+.header ul li a.active,
+.header ul li a:hover
+ {
+	background-color: black;
+	color: white;
+}
+.element1 {
+	position: absolute;
+	width: 150px;
+	height: 150px;
+	border: 40px solid black;
+	animation: rotate 30s linear infinite, fade 1s linear forwards;
+	animation-delay: 7s;
+	opacity: 0;
+	bottom: -80px;
+	left: 30%;
+	z-index: 50;
+}
+@keyframes rotate {
+	0% 
+	{
+		transform: rotate(45deg);
+	}
+	100% 
+	{
+		transform: rotate(450deg);
+	}
+}
+.element2 {
+	position: absolute;
+	overflow: hidden;
+	width: 60px;
+	height: 60px;
+	border: 4px solid black;
+	animation: rotate 30s linear infinite, fade 1s linear forwards;
+	animation-delay: 7s;
+	opacity: 0;
+	top: 35%;
+	left: -10px;
+}
+@keyframes rotate {
+	0% 
+	{
+		transform: rotate(45deg);
+	}
+	100% 
+	{
+		transform: rotate(450deg);
+	}
+}
+.aboutme {
+	position: absolute;
+	text-align: center;
+	font-size: 1.4em;
+	letter-spacing: 3px;
+	margin-right: 16%;
+	bottom: 11%;
+	right: 0;
+	opacity: 0;
+	animation: fade 1s linear forwards;
+	animation-delay: 6s;
+}
